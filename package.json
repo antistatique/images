@@ -2,6 +2,7 @@
   "name": "images",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://antistatique.github.io/images",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
@@ -29,10 +30,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "regenerate": "node generate.js",
     "lint:js": "eslint --ext js,jsx,ts,tsx ./ --max-warnings=0",
     "postinstall": "husky install && patch-package",
     "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "postpublish": "pinst --enable",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -72,6 +76,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-tailwind": "^0.2.1",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
     "patch-package": "^6.4.7",
