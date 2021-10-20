@@ -99,7 +99,7 @@ const Comparator = (): JSX.Element => {
               />
               <Meta {...left} side="left" wrapperWidth={width} />
             </div>
-            <Warnings {...left} wrapperWidth={width} />
+            <Warnings {...left} wrapperWidth={width} wrapperHeight={height} />
           </div>
           <div>
             <div tw="flex flex-row-reverse flex-wrap items-center">
@@ -112,7 +112,11 @@ const Comparator = (): JSX.Element => {
               <Meta {...right} side="right" wrapperWidth={width} />
             </div>
             <div tw="text-right">
-              <Warnings {...right} wrapperWidth={width} />
+              <Warnings
+                {...right}
+                wrapperWidth={width}
+                wrapperHeight={height}
+              />
             </div>
           </div>
         </div>

@@ -37,16 +37,50 @@ const App = (): JSX.Element => (
 
       <div tw="container px-2 mx-auto md:px-10">
         <div tw="md:w-1/2">
-          <h2 tw="mt-12 mb-4 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
+          <h2 tw="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
             How to use it
           </h2>
-          <p tw="mb-4 text-lg text-sensei md:text-xl md:mb-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tubulo
-            putas dicere? Non modo carum sibi quemque, verum etiam vehementer
-            carum esse? Zenonis est, inquam, hoc Stoici. Hoc est non modo cor
-            non habere, sed ne palatum quidem. Ut aliquid scire se gaudeant? Si
-            alia sentit, inquam, alia loquitur, numquam intellegam quid sentiat;
+          <p tw="mt-4 text-lg text-sensei md:text-xl md:mb-5">
+            First, choose the wrapper <b>resolution</b>. It should be the size
+            used to display your image on your website. Then, try different
+            options to see which is the best for this case.
           </p>
+
+          <p tw="mt-4 text-lg text-sensei md:text-xl">
+            Here are the <b>criteria</b> to keep in mind to make a choice:
+          </p>
+
+          <ul tw="px-6 mt-2 text-lg list-disc text-sensei md:text-xl">
+            <li>
+              <b>Weight</b> should be as low as possible
+            </li>
+            <li>
+              The image should be as <b>visually pleasing</b> as possible on any
+              kind of screen
+            </li>
+          </ul>
+
+          <h2 tw="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
+            Any advice?
+          </h2>
+
+          <p tw="mt-4 text-lg text-sensei md:text-xl">
+            Use modern image formats like <b>WebP</b> for modern display at{' '}
+            <b>2x</b> with a heavy compression and <b>JPEG</b> for old
+            display/browser at <b>1x</b> with medium compression.
+          </p>
+
+          <p tw="mt-4 text-lg text-sensei md:text-xl">
+            You should have something like:
+          </p>
+
+          <pre>{`
+<picture>
+  <source srcSet="my-image@2x.webp" type="image/webp" />
+  <source srcSet="my-image@1x.jpeg" type="image/jpeg" />
+  <img src="my-image@1x.jpeg" />
+</picture>
+          `}</pre>
         </div>
       </div>
     </main>

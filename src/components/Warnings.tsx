@@ -12,18 +12,32 @@ export type Props = {
   filename: string;
   path: string;
   wrapperWidth: number;
+  wrapperHeight: number;
 };
 
-const Warnings = ({ width, weight, wrapperWidth }: Props): JSX.Element => (
+const Warnings = ({
+  width,
+  height,
+  weight,
+  wrapperWidth,
+  wrapperHeight,
+}: Props): JSX.Element => (
   <div tw="mt-4 space-y-2 text-limonade">
+    {wrapperWidth / wrapperHeight !== width / height && (
+      <p>
+        ⚠️ The wrapper's <b>ratio</b> don't match the image ratio
+      </p>
+    )}
     {width / wrapperWidth > 2 && (
       <p>
-        ⚠️ Too big for this uses, even for retina display; max @2x, here @
-        {Math.ceil(width / wrapperWidth)}x
+        ⚠️ <b>Too big</b> for this usage, even for retina display; max @2x, here
+        @{Math.ceil(width / wrapperWidth)}x
       </p>
     )}
     {+weight.replace('Ko', '') > 500 && (
-      <p>⚠️ Very heavy, check the compression ratio</p>
+      <p>
+        ⚠️ Very <b>heavy</b>, check the compression ratio
+      </p>
     )}
   </div>
 );
