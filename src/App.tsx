@@ -26,7 +26,7 @@ const App = (): JSX.Element => (
         <div tw="w-full mt-12 text-left lg:w-5/12">
           <p tw="text-xl md:text-2xl">
             A small tool to help you make the right decision when{' '}
-            <b>choosing image format, size and quality</b> (compression rate).
+            <b>choosing image format, size and quality</b> (compression ratio).
           </p>
         </div>
       </div>
