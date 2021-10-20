@@ -1,0 +1,18 @@
+[
+  {
+    "format": "webp",
+    "weight": "194ko",
+    "quality": "30",
+    "width": 2400,
+    "height": 1600,
+    "filename": "magick-2-1.webp"
+  },
+  {
+    "format": "jpeg",
+    "weight": "191ko",
+    "quality": "60",
+    "width": 1200,
+    "height": 800,
+    "filename": "jpg-60-1-1.jpg"
+  }
+]
