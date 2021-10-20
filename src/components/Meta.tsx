@@ -3,14 +3,9 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import tw from 'twin.macro';
 
-export type Props = {
-  format: string;
-  weight: string;
-  quality: string;
-  width: number;
-  height: number;
-  filename: string;
-  path: string;
+import { Image } from '../types/image';
+
+export type Props = Image & {
   side: string;
   wrapperWidth: number;
 };
@@ -24,7 +19,10 @@ const Meta = ({
   side,
   wrapperWidth,
 }: Props): JSX.Element => (
-  <div tw="flex px-4" css={side === 'right' && tw`flex-row-reverse`}>
+  <div
+    tw="flex flex-wrap mt-4 lg:mt-0"
+    css={side === 'right' ? tw`flex-row-reverse lg:pr-4` : tw`lg:pl-4`}
+  >
     <span tw="px-1 uppercase">{format}</span>
     <span tw="px-1"> | </span>
     <span tw="px-1">

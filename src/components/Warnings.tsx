@@ -3,14 +3,9 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import tw from 'twin.macro';
 
-export type Props = {
-  format: string;
-  weight: string;
-  quality: string;
-  width: number;
-  height: number;
-  filename: string;
-  path: string;
+import { Image } from '../types/image';
+
+export type Props = Image & {
   wrapperWidth: number;
   wrapperHeight: number;
 };
@@ -22,7 +17,7 @@ const Warnings = ({
   wrapperWidth,
   wrapperHeight,
 }: Props): JSX.Element => (
-  <div tw="mt-4 space-y-2 text-limonade">
+  <div tw="mt-4 font-mono text-sm space-y-2 text-limonade">
     {wrapperWidth / wrapperHeight !== width / height && (
       <p>
         ⚠️ The wrapper's <b>ratio</b> don't match the image ratio

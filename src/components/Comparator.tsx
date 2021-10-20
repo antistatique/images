@@ -9,14 +9,17 @@ import {
 import { jsx } from '@emotion/react';
 import tw from 'twin.macro';
 
+import images from '../images.json';
+import type { Image } from '../types/image';
+
 import Meta from './Meta';
-import options from './options.json';
 import Selector from './Selector';
 import Warnings from './Warnings';
 
 const Comparator = (): JSX.Element => {
-  const [left, setLeft] = useState(options[0]);
-  const [right, setRight] = useState(options[1]);
+  const options: Record<string, Image> = images;
+  const [left, setLeft] = useState(options['webp-30@2x']);
+  const [right, setRight] = useState(options['jpeg-65@1x']);
   const [width, setWidth] = useState(1200);
   const [height, setHeight] = useState(800);
 
@@ -92,9 +95,9 @@ const Comparator = (): JSX.Element => {
           <div>
             <div tw="flex flex-wrap items-center">
               <Selector
-                current={options.findIndex(i => i.path === left.path)}
+                current={left.id}
                 side="left"
-                onSelect={id => id > -1 && setLeft(options[id])}
+                onSelect={id => id !== 'choose' && setLeft(options[id])}
                 onUpload={files => handleUpload(files, setLeft)}
               />
               <Meta {...left} side="left" wrapperWidth={width} />
@@ -104,9 +107,9 @@ const Comparator = (): JSX.Element => {
           <div>
             <div tw="flex flex-row-reverse flex-wrap items-center">
               <Selector
-                current={options.findIndex(i => i.path === right.path)}
+                current={right.id}
                 side="right"
-                onSelect={id => id > -1 && setRight(options[id])}
+                onSelect={id => id !== 'choose' && setRight(options[id])}
                 onUpload={files => handleUpload(files, setRight)}
               />
               <Meta {...right} side="right" wrapperWidth={width} />
@@ -137,6 +140,20 @@ const Comparator = (): JSX.Element => {
             <ReactCompareSliderImage src={right.path} alt="Right image" />
           }
         />
+        {(options[left.id] !== undefined ||
+          options[right.id] !== undefined) && (
+          <p tw="mt-4 italic text-center text-ninja">
+            Image by{' '}
+            <a
+              href="https://unsplash.com/@matthewhenry"
+              target="_blank"
+              rel="noreferrer"
+              tw="underline hover:text-white transition-colors"
+            >
+              Matthew Henry
+            </a>
+          </p>
+        )}
       </div>
     </div>
   );
