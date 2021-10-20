@@ -1,14 +1,24 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GlobalStyles } from 'twin.macro';
+import { css, Global } from '@emotion/react';
+import tw, { GlobalStyles } from 'twin.macro';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import './index.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
+    <Global
+      styles={css`
+        body {
+          ${tw`text-minuit`}
+        }
+      `}
+    />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
