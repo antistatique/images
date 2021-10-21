@@ -64,8 +64,8 @@ const App = (): JSX.Element => (
             How to generate images?
           </h2>
           <p tw="mt-4 text-lg text-sensei md:text-xl md:mb-5">
-            There is a lot of software options, but the easiest way to do it, is
-            to use{' '}
+            There are a lot of software options, but the easiest way to do it,
+            is to use{' '}
             <a
               href="https://imagemagick.org/index.php"
               target="_blank"
