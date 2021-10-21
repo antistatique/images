@@ -18,7 +18,7 @@ const images = {
     width: 4951,
     height: 3301,
     filename: 'original.jpeg',
-    path: '/images/original.jpeg',
+    path: './images/original.jpeg',
   },
 };
 
