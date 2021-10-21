@@ -11,6 +11,8 @@ $ yarn start
 
 ## 🖼 Re-generate images
 
+You'll need [ImageMagick](https://imagemagick.org/index.php) installed.
+
 ```
 $ yarn regenerate
 ```
