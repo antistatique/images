@@ -38,7 +38,7 @@ const App = (): JSX.Element => (
       <div tw="container px-2 mx-auto md:px-10">
         <div tw="md:w-1/2">
           <h2 tw="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
-            How to use it
+            How to use it?
           </h2>
           <p tw="mt-4 text-lg text-sensei md:text-xl md:mb-5">
             First, choose the wrapper <b>resolution</b>. It should be the size
@@ -61,26 +61,94 @@ const App = (): JSX.Element => (
           </ul>
 
           <h2 tw="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
+            How to generate images?
+          </h2>
+          <p tw="mt-4 text-lg text-sensei md:text-xl md:mb-5">
+            There is a lot of software options, but the easiest way to do it, is
+            to use{' '}
+            <a
+              href="https://imagemagick.org/index.php"
+              target="_blank"
+              rel="noreferrer"
+              tw="underline hover:text-minuit transition-colors"
+            >
+              ImageMagick
+            </a>
+            .
+          </p>
+          <p tw="mt-4 text-lg text-sensei md:text-xl">For example:</p>
+          <div tw="max-w-full overflow-x-auto">
+            <pre>{`
+# One by one            
+$ magick original.jpeg \\
+  -resize 2400x1600 \\
+  -format webp \\
+  -quality 30 \\
+  30@2x.webp
+
+# By batch, in a directory
+$ mogrify \\
+  -format webp \\
+  -quality 30 \\
+  -resize 2400x1600 \\
+  *.webp
+            `}</pre>
+          </div>
+
+          <h2 tw="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
             Any advice?
           </h2>
 
           <p tw="mt-4 text-lg text-sensei md:text-xl">
-            Use modern image formats like <b>WebP</b> for modern display at{' '}
-            <b>2x</b> with a heavy compression and <b>JPEG</b> for old
-            display/browser at <b>1x</b> with medium compression.
+            Use modern image formats like <b>AVIF</b> or <b>WebP</b> for modern
+            display at <b>2x</b> with a heavy compression and <b>JPEG</b> for
+            old display/browser at <b>1x</b> with medium compression.
           </p>
 
           <p tw="mt-4 text-lg text-sensei md:text-xl">
             You should have something like:
           </p>
 
-          <pre>{`
+          <div tw="max-w-full overflow-x-auto">
+            <pre>{`
 <picture>
+  <source srcSet="my-image@2x.avif" type="image/avif" />
   <source srcSet="my-image@2x.webp" type="image/webp" />
   <source srcSet="my-image@1x.jpeg" type="image/jpeg" />
   <img src="my-image@1x.jpeg" />
 </picture>
-          `}</pre>
+            `}</pre>
+          </div>
+
+          <h2 tw="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
+            What about browser support?
+          </h2>
+          <p tw="mt-4 text-lg text-sensei md:text-xl md:mb-5">
+            It’s obvious that modern formats are not supported by every browser.
+            Take a look for yourself, based on your audience:
+          </p>
+          <ul tw="px-6 mt-2 text-lg list-disc text-sensei md:text-xl">
+            <li>
+              <a
+                href="https://caniuse.com/webp"
+                target="_blank"
+                rel="noreferrer"
+                tw="underline hover:text-minuit transition-colors"
+              >
+                WebP
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://caniuse.com/avif"
+                target="_blank"
+                rel="noreferrer"
+                tw="underline hover:text-minuit transition-colors"
+              >
+                AVIF
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </main>

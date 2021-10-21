@@ -1,7 +1,8 @@
 const fs = require('fs-extra')
 const sharp = require('sharp');
+const { execSync } = require('child_process');
 
-const formats = ['jpeg', 'webp'];
+const formats = ['jpeg', 'webp', 'avif'];
 const qualities = [100, 85, 65, 50, 40, 30, 20];
 const sizes = {
   '@1x': [1200, 800],
@@ -42,6 +43,16 @@ formats.forEach(format => {
           .toFile(path, function(err) {
             if (err !== null) console.error(err);
           });
+      }
+      if (format === 'avif') {
+        execSync(`magick ./public/images/original.jpeg \
+          -resize ${sizes[size][0]}x${sizes[size][1]} \
+          -format ${format} \
+          -quality ${quality} \
+          ${path}
+        `, (error, stdout, stderr) => {
+          if (error !== null) console.error(err);
+        });
       }
 
       const stats = fs.statSync(path);
