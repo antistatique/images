@@ -95,6 +95,19 @@ $ mogrify \\
             `}</pre>
           </div>
 
+          <p tw="mt-4 text-lg text-sensei md:text-xl">
+            Here a simple, but powerfull,{' '}
+            <a
+              tw="underline hover:text-minuit transition-colors"
+              href="https://gist.github.com/Yago/d49151559176418db9ccb1814e72b28e"
+              target="_blank"
+              rel="noreferrer"
+            >
+              image generation script
+            </a>
+            .
+          </p>
+
           <h2 tw="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
             Any advice?
           </h2>
