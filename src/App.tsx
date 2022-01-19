@@ -91,7 +91,7 @@ $ mogrify \\
   -format webp \\
   -quality 30 \\
   -resize 2400x1600 \\
-  *.webp
+  *.jpeg
             `}</pre>
           </div>
 
