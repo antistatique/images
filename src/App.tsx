@@ -116,7 +116,7 @@ done
           </h2>
 
           <p className="mt-4 text-lg text-sensei md:text-xl">
-            Use only modern image formats like <b>AVIF</b> or <b>WebP</b>, no need to bother with JPEG anymore regarding browser support:
+            Use only modern image formats like <b>AVIF</b> or <b>WebP</b>, no <b>need to bother with JPEG</b> anymore regarding browser support:
           </p>
           <ul className="px-6 mt-2 text-lg list-disc text-sensei md:text-xl">
             <li>
@@ -142,7 +142,7 @@ done
           </ul>
 
           <p className="mt-4 text-lg text-sensei md:text-xl">
-            Provide a single dithered effect image for all old browsers. It could be done with ImageMagick like:
+            Provide a <b>single dithered effect image</b> for old browsers. It could be done with ImageMagick like:
           </p>
           <div className="max-w-full overflow-x-auto">
             <pre>{`

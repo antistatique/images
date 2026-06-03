@@ -14,7 +14,7 @@ import Warnings from './Warnings';
 
 const Comparator = (): React.JSX.Element => {
   const options: Record<string, Image> = images;
-  const [left, setLeft] = useState(options['webp-30@2x']);
+  const [left, setLeft] = useState(options['avif-40@2x']);
   const [right, setRight] = useState(options['jpeg-65@1x']);
   const [width, setWidth] = useState(1200);
   const [height, setHeight] = useState(800);
