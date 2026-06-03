@@ -10,8 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/vite": "^4.3.0",
+    "clsx": "^2.1.1",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-compare-slider": "^4.0.0",
+    "react-dom": "^19.2.6",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

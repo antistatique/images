@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  /* Font families */
+  --font-sans:
+    RegolaPro, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: Fragen, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono:
+    'Fira Code VF', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+
+  /* Font sizes (replaces Tailwind defaults) */
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 15px;
+  --text-sm--line-height: 22px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-lg: 18px;
+  --text-lg--line-height: 27px;
+  --text-xl: 21px;
+  --text-xl--line-height: 32px;
+  --text-2xl: 27px;
+  --text-2xl--line-height: 40px;
+  --text-3xl: 34px;
+  --text-3xl--line-height: 40px;
+  --text-4xl: 52px;
+  --text-4xl--line-height: 62px;
+  --text-5xl: 72px;
+  --text-5xl--line-height: 86px;
+  --text-6xl: 100px;
+  --text-6xl--line-height: 100px;
+
+  /* Breakpoints (identical to Tailwind 3 config) */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  /* Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-50: 12.5rem;
+
+  /* Line height */
+  --leading-tighter: 0.9;
+
+  /* Border width */
+  --border-3: 3px;
+
+  /* Brand colors */
+  --color-magenta-light: #ffeff0;
+  --color-magenta: #ff0099;
+  --color-magenta-dark: #d1007e;
+  --color-limonade: #fff618;
+  --color-balsamique-light: #b26d9a;
+  --color-balsamique: #570039;
+  --color-flamant-rose: #ff7495;
+  --color-minuit: #000032;
+  --color-sensei: #4d4d70;
+  --color-ninja: #808098;
+
+  /* Semantic aliases */
+  --color-primary-light: #ffeff0;
+  --color-primary: #ff0099;
+  --color-primary-dark: #d1007e;
+  --color-secondary-light: #b26d9a;
+  --color-secondary: #570039;
+
+  /* Gray scale extensions */
+  --color-gray-lightest: #f2f2f5;
+  --color-gray-light: #e6e6eb;
+  --color-gray: #dadae0;
+  --color-gray-dark: #a9a9b8;
+  --color-gray-darkest: #808098;
+}
