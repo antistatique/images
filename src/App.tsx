@@ -80,16 +80,21 @@ const App = (): React.JSX.Element => (
 # One by one            
 $ magick original.jpeg \\
   -resize 2400x1600 \\
-  -format webp \\
+  -format avif \\
   -quality 30 \\
-  30@2x.webp
+  30@2x.avif
 
 # By batch, in a directory
-$ mogrify \\
-  -format webp \\
-  -quality 30 \\
-  -resize 2400x1600 \\
-  *.jpeg
+for file in *.jpg; do
+    name="\${file%.*}"
+
+    for width in 480 768 1024 1600 2400; do
+        magick "$file" \\
+            -quality 45 \\
+            -resize "\${width}x" \\
+            "\${name}-\${width}w.avif"
+    done
+done
             `}</pre>
           </div>
 
@@ -111,32 +116,7 @@ $ mogrify \\
           </h2>
 
           <p className="mt-4 text-lg text-sensei md:text-xl">
-            Use modern image formats like <b>AVIF</b> or <b>WebP</b> for modern
-            display at <b>2x</b> with a heavy compression and <b>JPEG</b> for
-            old display/browser at <b>1x</b> with medium compression.
-          </p>
-
-          <p className="mt-4 text-lg text-sensei md:text-xl">
-            You should have something like:
-          </p>
-
-          <div className="max-w-full overflow-x-auto">
-            <pre>{`
-<picture>
-  <source srcSet="my-image@2x.avif" type="image/avif" />
-  <source srcSet="my-image@2x.webp" type="image/webp" />
-  <source srcSet="my-image@1x.jpeg" type="image/jpeg" />
-  <img src="my-image@1x.jpeg" />
-</picture>
-            `}</pre>
-          </div>
-
-          <h2 className="mt-12 font-serif text-2xl font-bold md:text-3xl md:mb-5 md:mt-14">
-            What about browser support?
-          </h2>
-          <p className="mt-4 text-lg text-sensei md:text-xl md:mb-5">
-            It’s obvious that modern formats are not supported by every browser.
-            Take a look for yourself, based on your audience:
+            Use only modern image formats like <b>AVIF</b> or <b>WebP</b>, no need to bother with JPEG anymore regarding browser support:
           </p>
           <ul className="px-6 mt-2 text-lg list-disc text-sensei md:text-xl">
             <li>
@@ -160,6 +140,38 @@ $ mogrify \\
               </a>
             </li>
           </ul>
+
+          <p className="mt-4 text-lg text-sensei md:text-xl">
+            Provide a single dithered effect image for all old browsers. It could be done with ImageMagick like:
+          </p>
+          <div className="max-w-full overflow-x-auto">
+            <pre>{`
+$ magick original.jpeg -scale 640 -colorspace Gray -ordered-dither h4x4o -colorspace sRGB -opaque black dither.png
+            `}</pre>
+          </div>
+
+          <p className="mt-4 text-lg text-sensei md:text-xl">
+            Then, you should have something like:
+          </p>
+
+          <div className="max-w-full overflow-x-auto">
+            <pre>{`
+<picture >
+  <source
+    type="image/avif"
+    srcset="my-image_480.avif 480w, my-image_768.avif 768w, my-image_1024.avif 1024w, my-image_1600.avif 1600w, my-image_2400.avif 2400w"
+    sizes="(min-width: 1280px) 750px, 85vw"
+  />
+  <img
+    alt="image description"
+    src="my-image_dither.png"
+    sizes="(min-width: 1280px) 750px, 85vw"
+    loading="lazy"
+    fetchpriority="auto"
+  />
+</picture>
+            `}</pre>
+          </div>
         </div>
       </div>
     </main>

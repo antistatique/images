@@ -26,7 +26,9 @@ const Meta = ({
     <span className="px-1"> | </span>
     <span className="px-1 text-limonade">@{Math.ceil(width / wrapperWidth)}x</span>
     <span className="px-1"> | </span>
-    <span className="px-1">{quality}%</span>
+    <span className="px-1">
+      {/^\d+$/.test(quality) ? `${quality}%` : quality}
+    </span>
     <span className="px-1">{side === 'left' ? '→' : '←'}</span>
     <span className="px-1 text-magenta">{weight}</span>
   </div>
